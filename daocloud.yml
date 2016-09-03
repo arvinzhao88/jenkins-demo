@@ -1,0 +1,10 @@
+image: express-app
+env:  
+    - MYENV = "hello"
+
+install:  
+    - echo $MYENV
+
+before_script:
+script: 
+    - npm test
