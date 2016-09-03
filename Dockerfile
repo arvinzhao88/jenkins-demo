@@ -9,4 +9,4 @@ RUN cd /var/www ; npm install
 
 EXPOSE	3000
 
-CMD ["npm", "start"]
+CMD ["/usr/bin/node", "/var/www/bin/www"]
