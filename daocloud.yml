@@ -1,6 +1,6 @@
 version: "2.0"
 test:
-  image: daocloud/ci-node
+  image: daocloud.io/library/node:5.12.0
   env:
   - MYENV = "hello"
   install:
