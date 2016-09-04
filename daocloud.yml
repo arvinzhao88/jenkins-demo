@@ -1,11 +1,16 @@
-image: node.js:5.12.0
-env:  
-    - MYENV = "hello"
-
-install:  
-    - echo $MYENV
-
-before_script:
-    - npm install
-script: 
-    - npm test
+version: "2.0"
+test:
+  image: node.js:5.12.0
+  env:
+  - MYENV = "hello"
+  install:
+  - echo $MYENV
+  before_script:
+  - npm install
+  script:
+  - npm test
+build:
+  image:
+    dockerfile_path: /Dockerfile
+    build_dir: /
+    cache: true

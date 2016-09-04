@@ -5,8 +5,10 @@ RUN mkdir /var/www
 
 ADD . /var/www/
 
-RUN cd /var/www ; npm install 
+WORKDIR /var/www
+
+RUN npm install 
 
 EXPOSE	3000
 
-CMD ["/usr/local/bin/node", "/var/www/bin/www"]
+CMD ["npm", "start"]
