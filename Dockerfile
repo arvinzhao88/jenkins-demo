@@ -1,4 +1,4 @@
-FROM       daocloud.io/library/node:5.12.0
+FROM       node:5.12.0
 MAINTAINER Jack Hu <hello@jackhu.top>
 
 RUN mkdir /var/www
