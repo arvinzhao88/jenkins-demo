@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 // var users = require('./routes/users');
 
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://localhost/jenkins-demo", {
+mongoose.connect("mongodb://mongo-test:27017/jenkins-demo", {
   db: {
     safe: true
   },
