@@ -4,11 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var routes = require('./routes/index');
-// var users = require('./routes/users');
 
 var mongoose = require('mongoose');
-mongoose.connect("mongodb://mongotest:27017/jenkins-demo");
+var MONGO_HOST = process.env.MONGO_HOST || "localhost"
+mongoose.connect("mongodb://"+ MONGO_HOST + "/jenkins-demo");
 require('./db/jenkins.demo.model');
 mongoose.Promise = global.Promise;
 require('./db/initdata');
@@ -28,8 +27,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 require('./routes')(app);
-// app.use('/', routes);
-// app.use('/users', users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
