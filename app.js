@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 //var MONGO_HOST = process.env.MONGOTEST_PORT_27017_TCP_ADDR || "localhost"
-console.log(MONGOTEST_PORT_27017_TCP_ADDR)
+console.log(process.env.MONGOTEST_PORT_27017_TCP_ADDR)
 mongoose.connect("mongodb://" + process.env.MONGOTEST_PORT_27017_TCP_ADDR + ":" + process.env.MONGOTEST_PORT_27017_TCP_PORT + "/jenkins-demo");
 require('./db/jenkins.demo.model');
 mongoose.Promise = global.Promise;
