@@ -1,14 +1,10 @@
-FROM       node:5.12.0
+FROM       jackhu/jenkins-deploy-nodejs:4
 MAINTAINER Jack Hu <hello@jackhu.top>
 
-RUN mkdir /var/www
+RUN npm install
 
-ADD . /var/www/
+ENV PORT 3000
+ENV MONGO_HOST mongotest
+ENV REDIS_HOST redistest
 
-WORKDIR /var/www
-
-RUN npm install 
-
-EXPOSE	3000
-
-CMD ["npm", "start"]
+EXPOSE  $PORT
