@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var MONGO_ADD = process.env.MONGOTEST_PORT_27017_TCP_ADDR || "localhost"
 var REDIST_ADD = process.env.REDISTEST_PORT_6379_TCP_ADDR || "localhost"
-console.log(process.env.MONGOTEST_PORT_27017_TCP_PORT + REDISTEST_PORT_6379_TCP_PORT)
+console.log(process.env.MONGOTEST_PORT_27017_TCP_PORT + process.env.REDISTEST_PORT_6379_TCP_PORT)
 mongoose.connect("mongodb://" + MONGO_ADD + "/jenkins-demo");
 require('./db/jenkins.demo.model');
 mongoose.Promise = global.Promise;
