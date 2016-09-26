@@ -6,7 +6,7 @@
     "start":"node ./bin/www",
     "pm2-start":"pm2 start process.json",
     "dev": "nodemon ./bin/www",
-    "test": "mocha -t 10000 spec"
+    "test": "mocha -t 20000 spec"
   },
   "bin": {
     "mocha": "node_modules/.bin/"
