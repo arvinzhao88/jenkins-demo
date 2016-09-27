@@ -8,3 +8,5 @@ ENV MONGO_HOST mongo
 ENV REDIS_HOST redis
 
 EXPOSE  $PORT
+
+CMD ["npm", "run", "pm2-start"]
