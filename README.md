@@ -2,3 +2,4 @@
 https
 wawa
 parameter
+auto deploy success
