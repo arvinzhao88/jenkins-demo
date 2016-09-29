@@ -3,4 +3,4 @@ MAINTAINER Jack Hu <hello@jackhu.top>
 
 EXPOSE  3000
 
-CMD ["npm","run","pm2-start"]
+CMD pm2 start --no-daemon processes.json
