@@ -6,19 +6,20 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
-var MONGO_ADDR = process.env.MONGO_PORT_27017_TCP_ADDR || "localhost"
-var REDIST_ADDR = process.env.REDIS_PORT_6379_TCP_ADDR || "localhost"
-console.log(MONGO_ADDR + " " + REDIST_ADDR)
-mongoose.connect("mongodb://" + MONGO_ADDR + "/jenkins-demo", {
+var MONGO_ADDR = process.env.MONGO_PORT_27017_TCP_ADDR || 'localhost';
+mongoose.connect('mongodb://' + MONGO_ADDR + '/jenkins-demo', {
   user: process.env.MONGO_USERNAME || '', 
   pass: process.env.MONGO_PASSWORD || ''
 });
+
 require('./db/jenkins.demo.model');
 mongoose.Promise = global.Promise;
 require('./db/initdata');
 
-var app = express();
+var redis = require('./db/redis');
+redis.set('foo', 'bar');
 
+var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -39,8 +40,6 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
-
-// error handlers
 
 // development error handler
 // will print stacktrace
@@ -63,6 +62,5 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
-
 
 module.exports = app;
